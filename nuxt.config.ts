@@ -1,5 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: true,
+
+  app: {
+    baseURL: '/portfolio/'
+  },
+
+  nitro: {
+    preset: 'github-pages'
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',
