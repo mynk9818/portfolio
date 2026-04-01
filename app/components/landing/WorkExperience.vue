@@ -1,8 +1,25 @@
 <script setup lang="ts">
 import type { IndexCollectionItem } from '@nuxt/content'
 
+interface ExperienceItem {
+  position: string
+  date: string
+  freelance?: boolean
+  company: {
+    name: string
+    url: string
+    logo: string
+    color: string
+  }
+}
+
 const props = defineProps<{
-  page: IndexCollectionItem
+  page: {
+    experience: {
+      title: string
+      items: ExperienceItem[]
+    }
+  }
   showTitle?: boolean
 }>()
 

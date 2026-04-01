@@ -16,6 +16,15 @@ const { data: projects } = await useAsyncData('index-work', () =>
 if (!projects.value) {
   throw createError({ statusCode: 404, statusMessage: 'projects not found', fatal: true })
 }
+const { app } = useRuntimeConfig()
+
+const resolveImagePath = (path: string) => {
+  if (!path) return ''
+  if (path.startsWith('/') && !path.startsWith(app.baseURL)) {
+    return `${app.baseURL}${path.slice(1)}`
+  }
+  return path
+}
 </script>
 
 <template>
@@ -64,11 +73,11 @@ if (!projects.value) {
               />
             </ULink>
           </template>
-          <img
-            :src="project.image"
+          <NuxtImg
+            :src="resolveImagePath(project.image)"
             :alt="project.title"
             class="object-contain w-full h-48 rounded-lg"
-          >
+          />
         </UPageCard>
       </Motion>
     </div>

@@ -15,6 +15,13 @@ const { data: projects } = await useAsyncData('projects', () => {
 })
 
 const { global } = useAppConfig()
+const { app } = useRuntimeConfig()
+
+const resolveImagePath = (path: string) => {
+  if (!path) return ''
+  if (path.startsWith('http') || path.startsWith('https')) return path
+  return `${app.baseURL}${path.startsWith('/') ? path.slice(1) : path}`
+}
 
 useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
@@ -80,11 +87,11 @@ useSeoMeta({
               />
             </ULink>
           </template>
-          <img
-            :src="project.image"
+          <NuxtImg
+            :src="resolveImagePath(project.image)"
             :alt="project.title"
             class="object-contain w-full h-48 rounded-lg"
-          >
+          />
         </UPageCard>
       </Motion>
     </UPageSection>

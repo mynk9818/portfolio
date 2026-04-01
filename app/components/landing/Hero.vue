@@ -2,10 +2,20 @@
 import type { IndexCollectionItem } from '@nuxt/content'
 
 const { footer, global } = useAppConfig()
+const { app } = useRuntimeConfig()
 
 defineProps<{
   page: IndexCollectionItem
 }>()
+
+const resolveImagePath = (path: string) => {
+  if (!path) return ''
+  if (path.startsWith('http') || path.startsWith('https')) return path
+  if (path.startsWith('/') && !path.startsWith(app.baseURL)) {
+    return `${app.baseURL}${path.slice(1)}`
+  }
+  return path
+}
 </script>
 
 <template>
@@ -184,6 +194,7 @@ defineProps<{
           class="rounded-lg aspect-square object-cover"
           :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
           v-bind="img"
+          :src="resolveImagePath(img.src)"
         />
       </Motion>
     </UMarquee>

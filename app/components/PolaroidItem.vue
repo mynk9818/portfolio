@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { app } = useRuntimeConfig()
+
 defineProps<{
   image: {
     src: string
@@ -6,6 +8,15 @@ defineProps<{
   }
   index: number
 }>()
+
+const resolveImagePath = (path: string) => {
+  if (!path) return ''
+  if (path.startsWith('http') || path.startsWith('https')) return path
+  if (path.startsWith('/') && !path.startsWith(app.baseURL)) {
+    return `${app.baseURL}${path.slice(1)}`
+  }
+  return path
+}
 </script>
 
 <template>
@@ -16,11 +27,11 @@ defineProps<{
       index % 2 === 0 ? 'hover:-translate-x-4' : 'hover:translate-x-4'
     ]"
   >
-    <img
-      :src="image.src"
+    <NuxtImg
+      :src="resolveImagePath(image.src)"
       :alt="image.alt"
       class="size-32 object-contain p-4"
-    >
+    />
     <span class="w-32 text-xs text-black font-serif font-medium text-center mt-2">
       {{ image.alt }}
     </span>

@@ -20,8 +20,8 @@ useSeoMeta({
 })
 
 const [{ data: navigation }, { data: files }] = await Promise.all([
-  useAsyncData('navigation', () => []),
-  useLazyAsyncData('search', () => [], {
+  useAsyncData('navigation', async () => []),
+  useLazyAsyncData('search', async () => [], {
     server: false
   })
 ])

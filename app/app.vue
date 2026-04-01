@@ -3,6 +3,8 @@ const colorMode = useColorMode()
 
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
 
+const { app } = useRuntimeConfig()
+
 useHead({
   meta: [
     { charset: 'utf-8' },
@@ -10,7 +12,7 @@ useHead({
     { key: 'theme-color', name: 'theme-color', content: color }
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico' }
+    { rel: 'icon', href: `${app.baseURL}favicon.ico` }
   ],
   htmlAttrs: {
     lang: 'en'
@@ -25,8 +27,8 @@ useSeoMeta({
 })
 
 const [{ data: navigation }, { data: files }] = await Promise.all([
-  useAsyncData('navigation', () => []),
-  useLazyAsyncData('search', () => [], {
+  useAsyncData('navigation', async () => []),
+  useLazyAsyncData('search', async () => [], {
     server: false
   })
 ])
