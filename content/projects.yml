@@ -3,4 +3,10 @@ description: I've worked on a variety of projects, focusing on creating intuitiv
 links:
   - label: "Let's talk"
     color: "neutral"
+    to: "mailto:mtanwar363392@gmail.com"
+    target: "_blank"
+    external: true
   - label: 'Email me'
+    to: "mailto:mtanwar363392@gmail.com"
+    target: "_blank"
+    external: true

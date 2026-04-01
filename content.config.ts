@@ -12,7 +12,8 @@ const createButtonSchema = () => z.object({
   color: z.enum(['primary', 'neutral', 'success', 'warning', 'error', 'info']).optional(),
   size: z.enum(['xs', 'sm', 'md', 'lg', 'xl']).optional(),
   variant: z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link']).optional(),
-  target: z.enum(['_blank', '_self']).optional()
+  target: z.enum(['_blank', '_self']).optional(),
+  external: z.boolean().optional()
 })
 
 const createImageSchema = () => z.object({

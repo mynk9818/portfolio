@@ -5,12 +5,12 @@ title: "Hey, I'm Nanak Tanwar Mobile App Developer"
 description: "I craft intuitive digital experiences where design meets functionality. Based in India, bringing ideas to life through code and creativity."
 hero:
   images:
-    - src: /hero/random-1.avif
-      alt: Random Image 1
-    - src: /hero/random-2.avif
-      alt: Random Image 2
-    - src: /hero/random-3.avif
-      alt: Random Image 3
+    - src: https://api.iconify.design/simple-icons:flutter.svg?color=%2302569B
+      alt: Flutter
+    - src: https://api.iconify.design/simple-icons:react.svg?color=%2361DAFB
+      alt: React Native
+    - src: https://api.iconify.design/material-symbols:api.svg?color=%235E6AD2
+      alt: REST API
     - src: /hero/random-4.avif
       alt: Random Image 4
     - src: /hero/random-5.avif

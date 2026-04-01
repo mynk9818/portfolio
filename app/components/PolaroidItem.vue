@@ -19,7 +19,7 @@ defineProps<{
     <img
       :src="image.src"
       :alt="image.alt"
-      class="size-32 object-cover"
+      class="size-32 object-contain p-4"
     >
     <span class="w-32 text-xs text-black font-serif font-medium text-center mt-2">
       {{ image.alt }}
