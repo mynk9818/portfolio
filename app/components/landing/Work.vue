@@ -74,7 +74,7 @@ const resolveImagePath = (path: string) => {
             </ULink>
           </template>
           <NuxtImg
-            :src="resolveImagePath(project.image)"
+            :src="project.image"
             :alt="project.title"
             class="object-contain w-full h-48 rounded-lg"
           />

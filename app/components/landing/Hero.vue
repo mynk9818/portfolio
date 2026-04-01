@@ -194,7 +194,7 @@ const resolveImagePath = (path: string) => {
           class="rounded-lg aspect-square object-cover"
           :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
           v-bind="img"
-          :src="resolveImagePath(img.src)"
+          :src="img.src"
         />
       </Motion>
     </UMarquee>

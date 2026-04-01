@@ -28,7 +28,7 @@ const resolveImagePath = (path: string) => {
     ]"
   >
     <NuxtImg
-      :src="resolveImagePath(image.src)"
+      :src="image.src"
       :alt="image.alt"
       class="size-32 object-contain p-4"
     />
