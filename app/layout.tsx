@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -48,7 +47,6 @@ export default function RootLayout({
             <div className="absolute -bottom-[20%] left-[20%] w-[60%] h-[60%] rounded-full bg-[var(--glow-3)] blur-[120px]" />
           </div>
           {children}
-          {process.env.NODE_ENV === 'production' && <Analytics />}
         </ThemeProvider>
       </body>
     </html>
